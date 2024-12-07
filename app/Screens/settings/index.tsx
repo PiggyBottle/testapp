@@ -9,13 +9,18 @@ import Popup from '@/app/Components/Popup';
 
 export default function Settings() {
   const [showPopup, setShowPopup] = useState(false);
+  const [popupMessage, setPopupMessage] = useState(
+    'All notes have been cleared'
+  );
 
   const { deleteExposedNotes } = NoteStorageHook();
 
   useEffect(() => {
-    setTimeout(() => {
+    const timeoutId = setTimeout(() => {
       handleClosePopup();
     }, 3000);
+
+    return () => clearTimeout(timeoutId);
   }, [showPopup]);
 
   const handleClosePopup = () => {
@@ -30,12 +35,29 @@ export default function Settings() {
     deleteExposedNotes();
 
     setShowPopup(true);
+    setPopupMessage('All notes have been cleared');
   };
 
-  const pressHanderOC = () => {};
-  const pressHanderUA = () => {};
-  const pressHanderPP = () => {};
-  const pressHanderAU = () => {};
+  const unavaiableFunction = () => {
+    setPopupMessage('Function not included in demo');
+    setShowPopup(true);
+  };
+
+  const pressHanderOC = () => {
+    unavaiableFunction();
+  };
+
+  const pressHanderUA = () => {
+    unavaiableFunction();
+  };
+
+  const pressHanderPP = () => {
+    unavaiableFunction();
+  };
+
+  const pressHanderAU = () => {
+    unavaiableFunction();
+  };
 
   return (
     <BaseLayout showHeader={true} title={'Settings'} showBack={true}>
@@ -90,7 +112,7 @@ export default function Settings() {
       <Popup
         visible={showPopup}
         closePopUp={handleClosePopup}
-        message={'All notes have been cleared'}
+        message={popupMessage}
       />
     </BaseLayout>
   );

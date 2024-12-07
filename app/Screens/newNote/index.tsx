@@ -16,9 +16,11 @@ export default function NewNote() {
   const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
+    const timeoutId = setTimeout(() => {
       handleClosePopup();
     }, 3000);
+
+    return () => clearTimeout(timeoutId);
   }, [showPopup]);
 
   const handleClosePopup = () => {
@@ -67,6 +69,7 @@ export default function NewNote() {
           onChangeText={onChangeText}
           style={styles.inputStyles}
           value={text}
+          autoFocus={true}
         />
       </ScrollView>
       <EmptyFooter>

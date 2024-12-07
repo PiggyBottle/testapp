@@ -41,7 +41,9 @@ export default function Summary() {
           <View style={styles.topRowLeft}>
             {category?.icon}
             <VSpacer width={4} />
-            <Text style={styles.topRowTextStyles}>{categoryValue}</Text>
+            <Text style={styles.topRowTextStyles}>
+              {category?.summaryLabel}
+            </Text>
           </View>
           <BasicButton
             text={'Detail'}
@@ -143,9 +145,5 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     lineHeight: 21,
     color: '#FFFFFFB2',
-  },
-  text: {
-    color: '#fff',
-    height: 500,
   },
 });

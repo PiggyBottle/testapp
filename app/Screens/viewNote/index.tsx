@@ -24,14 +24,14 @@ export default function ViewNote() {
   };
 
   return (
-    <BaseLayout showHeader={true} title={'New Note'} showBack={true}>
+    <BaseLayout showHeader={true} title={'View Note'} showBack={true}>
       <ScrollView style={styles.contentContainer}>
         <Text style={styles.categoryStyles}>{category}</Text>
         <Spacer height={16} />
         <Text style={styles.contentStyles}>{content}</Text>
       </ScrollView>
       <EmptyFooter>
-        <BasicButton text={'Delete'} handleOnPress={handleOnPress} />
+        <BasicButton text={'Delete Note'} handleOnPress={handleOnPress} />
       </EmptyFooter>
     </BaseLayout>
   );

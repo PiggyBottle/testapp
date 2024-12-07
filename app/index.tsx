@@ -3,7 +3,7 @@ import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 import BaseLayout from './BaseLayout';
 import NavigationFooter from './Components/NavigationFooter';
 import { Spacer } from './Components/Spacer';
-import NOTE_CATEGORIES from './Constants/Categories';
+import NOTE_CATEGORIES, { NoteCategory } from './Constants/Categories';
 import NoteStorageHook, { AllNoteProps } from './Utils/NoteStorageHook';
 import { useCallback, useState } from 'react';
 import { NoteContentRow } from './Components/NoteContentRow';
@@ -24,40 +24,35 @@ export default function Index() {
     setLocalNotes(notes);
   };
 
-  const renderNotes = (category: string) => {
+  const renderNotes = (noteCategory: NoteCategory) => {
+    const category = noteCategory?.value;
     let categoryNotes = localNotes[category];
+
     return (
       <View style={styles.categorySection} key={`MainSection-${category}`}>
         <View style={styles.horizontal}>
-          {category === 'Work and study' ? (
-            <Image
-              style={styles.iconSize}
-              source={require('../assets/images/homeIconWnS.png')}
-            />
-          ) : category === 'Life' ? (
-            <Image
-              style={styles.iconSize}
-              source={require('../assets/images/homeIconLife.png')}
-            />
-          ) : (
-            <Image
-              style={styles.iconSize}
-              source={require('../assets/images/homeIconHnW.png')}
-            />
-          )}
+          {noteCategory?.homeIcon}
           <Text style={styles.headerText}>{category}</Text>
         </View>
         {categoryNotes?.map((note, index) => {
           if (index < 3) {
             return (
               <View key={`${note?.category}-${index}`}>
-                <NoteContentRow note={note} index={index} />
+                <NoteContentRow note={note} index={index} maxLength={20} />
               </View>
             );
           } else {
             return null;
           }
         })}
+        {categoryNotes?.length === 0 && (
+          <View>
+            <Spacer height={16} />
+            <Text style={styles.headerTextMain}>
+              No recent notes found for this category
+            </Text>
+          </View>
+        )}
       </View>
     );
   };
@@ -74,7 +69,7 @@ export default function Index() {
         </View>
         <Spacer height={28} />
         {NOTE_CATEGORIES.map((category) => {
-          return renderNotes(category?.value);
+          return renderNotes(category);
         })}
         <Spacer height={120} />
       </ScrollView>
@@ -90,18 +85,6 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     paddingBottom: 100,
-  },
-  text: {
-    color: '#fff',
-    height: 500,
-  },
-  button: {
-    fontSize: 20,
-    textDecorationLine: 'underline',
-    color: '#fff',
-  },
-  footerStyle: {
-    width: '100%',
   },
   horizontal: { display: 'flex', flexDirection: 'row' },
   iconSize: {

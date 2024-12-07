@@ -6,11 +6,13 @@ import { router } from 'expo-router';
 interface NoteContentRowProps {
   note: NoteProps;
   index: number;
+  maxLength?: number;
 }
 
 export const NoteContentRow: React.FC<NoteContentRowProps> = ({
   note,
   index,
+  maxLength = 200,
 }) => {
   return (
     <Pressable
@@ -23,7 +25,8 @@ export const NoteContentRow: React.FC<NoteContentRowProps> = ({
       }}
     >
       <Text style={styles.noteText} numberOfLines={2}>
-        {note?.content}
+        {note?.content?.substring(0, maxLength)}
+        {`${note?.content?.length > maxLength ? '...' : ''}`}
       </Text>
       <Image
         style={styles.iconSize}
