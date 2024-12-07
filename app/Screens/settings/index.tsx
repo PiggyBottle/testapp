@@ -13,7 +13,7 @@ export default function Settings() {
     'All notes have been cleared'
   );
 
-  const { deleteExposedNotes } = NoteStorageHook();
+  const { deleteAllNotes, deleteExposedNotes } = NoteStorageHook();
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
