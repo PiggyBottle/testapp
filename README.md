@@ -11,9 +11,9 @@ Device
 
 How to run
 
-1. yarn install
-2. npm start
-3. Scan QR Code with Expo Go
+1. In vscode terminal run `npm install`
+1. In vscode terminal run `npm start`
+1. Scan QR Code that appears in the terminal with Expo Go on a mobile device
 
 About delete all notes button
 
