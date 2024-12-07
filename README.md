@@ -1,6 +1,7 @@
 Environment
 
 - Node version 20.18.1
+- Expo SDK version 52.0.17
 - Windows 10 Pro
 - Android 13
 
