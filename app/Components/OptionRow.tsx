@@ -3,7 +3,7 @@ import { Pressable, View, Text, Image, StyleSheet } from 'react-native';
 
 interface OptionRowProps {
   onPressHandler: () => void;
-  icon: ReactNode; // Icon should be a functional component
+  icon: ReactNode;
   text: string;
 }
 

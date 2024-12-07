@@ -1,22 +1,11 @@
-import { Link, router, useFocusEffect } from 'expo-router';
-import {
-  Image,
-  Pressable,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { useFocusEffect } from 'expo-router';
+import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 import BaseLayout from './BaseLayout';
 import NavigationFooter from './Components/NavigationFooter';
 import { Spacer } from './Components/Spacer';
 import NOTE_CATEGORIES from './Constants/Categories';
-import NoteStorageHook, {
-  AllNoteProps,
-  NoteProps,
-} from './Utils/NoteStorageHook';
-import { useCallback, useEffect, useState } from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import NoteStorageHook, { AllNoteProps } from './Utils/NoteStorageHook';
+import { useCallback, useState } from 'react';
 import { NoteContentRow } from './Components/NoteContentRow';
 
 export default function Index() {

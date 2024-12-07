@@ -1,12 +1,10 @@
 import BaseLayout from '@/app/BaseLayout';
-import BasicButton from '@/app/Components/BasicButton';
 import NavigationFooter from '@/app/Components/NavigationFooter';
 import NoteContentRow from '@/app/Components/NoteContentRow';
-import Spacer, { VSpacer } from '@/app/Components/Spacer';
-import NOTE_CATEGORIES, { NoteCategory } from '@/app/Constants/Categories';
+import Spacer from '@/app/Components/Spacer';
 import NoteStorageHook, { AllNoteProps } from '@/app/Utils/NoteStorageHook';
 import { router, useFocusEffect, useLocalSearchParams } from 'expo-router';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useState } from 'react';
 import {
   Image,
   Pressable,

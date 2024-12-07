@@ -1,21 +1,11 @@
 import BaseLayout from '@/app/BaseLayout';
 import BasicButton from '@/app/Components/BasicButton';
 import EmptyFooter from '@/app/Components/EmptyFooter';
-import Spacer from '@/app/Components/Spacer';
-import {
-  Image,
-  Pressable,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
-import { router, useLocalSearchParams } from 'expo-router';
+import { Image, ScrollView, StyleSheet } from 'react-native';
 import NoteStorageHook from '@/app/Utils/NoteStorageHook';
-import { ReactNode, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { OptionRow } from '@/app/Components/OptionRow';
 import Popup from '@/app/Components/Popup';
-import NOTE_CATEGORIES from '@/app/Constants/Categories';
 
 export default function Settings() {
   const [showPopup, setShowPopup] = useState(false);

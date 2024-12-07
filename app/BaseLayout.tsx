@@ -5,7 +5,6 @@ import { ReactNode } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import Spacer from './Components/Spacer';
 import Constants from 'expo-constants';
-import { LinearGradient } from 'expo-linear-gradient';
 
 interface BaseLayoutProps {
   children?: ReactNode;

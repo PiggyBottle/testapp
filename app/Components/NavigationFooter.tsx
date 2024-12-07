@@ -1,5 +1,4 @@
 import { LinearGradient } from 'expo-linear-gradient';
-import { useEffect } from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import Spacer, { VSpacer } from './Spacer';
 import { Link } from 'expo-router';
